@@ -7,6 +7,8 @@ public class Base {
         boolean isUSA = true;
         int userAge = 15;
 
+
+
         int minimalAge = isUSA?21:18;
 
         if(isUSA){
