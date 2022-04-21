@@ -5,9 +5,9 @@ import java.sql.SQLOutput;
 public class Base {
     public static void main(String[] args) {
 
-        char countryCode = 'r';
+        char countryCode = 'a';
         String travelingCountry;
-        int myBudget = 5000;
+        int myBudget = 789;
         int sumNeeded;
         boolean isNegative = false;
 
