@@ -6,7 +6,7 @@ public class Base31 {
             // Task 1: showing off the odd and even numbers for positive and negative cases
 
            System.out.println("Task1:");
-           int num = -17;
+           int num = -15;
            System.out.println("Entered number: " + num);
            int size = num;
            if(num<0){
