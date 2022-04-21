@@ -10,7 +10,6 @@ public class Base31 {
                size = -size;
            }
 
-
            int[] oddArray = new int[size/2];
            int[] evenArray = new int[size/2 +1];
 
