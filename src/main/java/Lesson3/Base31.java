@@ -6,26 +6,32 @@ public class Base31 {
         // Task 1: showing off the odd and even numbers for positive and negative cases
 
         System.out.println("Task1:");
-        int num = -15;
+        int num = -13;
         System.out.println("Entered number: " + num);
         int size = num;
         if (num < 0) {
             size = -size;
         }
+        int [] oddArray;
+        int [] evenArray = new int[size / 2 + 1];;
 
-        int[] oddArray = new int[size / 2];
-        int[] evenArray = new int[size / 2 + 1];
+        if(size%2 == 0){
+            oddArray = new int[size / 2];
+        }
+        else{
+            oddArray = new int[size / 2 + 1];
+        }
 
         int oddArrayIndex = 0;
         int evenArrayIndex = 0;
 
         if (num < 0) {
-            for (int i = -num; i > 0; i--) {
+            for (int i = num; i < 0; i++) {
                 if (i % 2 == 0) {
-                    evenArray[evenArrayIndex] = -i;
+                    evenArray[evenArrayIndex] = i;
                     evenArrayIndex++;
                 } else {
-                    oddArray[oddArrayIndex] = -i;
+                    oddArray[oddArrayIndex] = i;
                     oddArrayIndex++;
                 }
             }
