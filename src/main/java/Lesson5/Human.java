@@ -7,10 +7,10 @@ public class Human {
         public String gender;
 
 
-     public Human(String Name,String Surname,int Age, String Gender){
-         name=Name;
-         surname =Surname;
-         age=Age;
-         gender=Gender;
+     public Human(String myName,String mySurname,int myAge, String myGender){
+         name = myName;
+         surname = mySurname;
+         age = myAge;
+         gender = myGender;
      }
 }
