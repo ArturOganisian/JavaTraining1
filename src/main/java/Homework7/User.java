@@ -34,7 +34,7 @@ public class User {
         return age;
     }
     public void setAge(int age) {
-        if(age>=0 || age <= 17){
+        if(age>=0 && age <= 17){
             System.out.println("Sorry but you must be an Adult to use our Banking system :(");
             return;
         }
@@ -58,25 +58,37 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", surname='" + surName + '\'' +
-                ", age='" + age + '\'' +
-                ", cash=" + cash + '\'' +
+        return  "{" +
+                "Name='" + name + '\'' +
+                ", Surname='" + surName + '\'' +
+                ", Age='" + age + '\'' +
+                ", Cash=" + cash + '\'' +
                 '}';
     }
 
     public void putMoney(int money){
-        cash =cash + money;
+        if(money<0){
+            System.out.println("Incorrect value.");
+            return;
+        }
+        cash = cash + money;
         System.out.println("Money added successfully.");
     }
 
     public void withdrawMoney(int money){
+        if(money<0){
+            System.out.println("Action impossible.");
+            return;
+        }
         cash = cash - money;
         System.out.println("Money transferred to your hand.");
     }
 
     public void  transferMoney(int money, User user){
+        if(money<0){
+            System.out.println("Action impossible.");
+            return;
+        }
         this.withdrawMoney(money);
         user.putMoney(money);
         System.out.println("Money successfully transferred.");

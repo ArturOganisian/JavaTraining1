@@ -25,7 +25,7 @@ public class Bank {
     public void printAccounts() {
         for (int i = 0; i < account.length; i++) {
             if (account[i] != null)
-                System.out.println("The customer under index " + (i + 1) + account[i].toString());
+                System.out.println("The customer UID " + (i + 1) + account[i].toString());
         }
     }
 
@@ -57,9 +57,7 @@ public class Bank {
     }
 
     public void addAccount(User user){
-        if(count> account.length){
-            increaseArrSize(account);
-        }
+        increaseArrSize(account);
         account[count]=user;
         count++;
     }
@@ -126,7 +124,6 @@ public class Bank {
             System.out.println("The same user was selected. Transaction failed.");
             return;
         }
-
         System.out.println("How much you want to transfer?");
         int amount = input.nextInt();
         account[index1-1].transferMoney(amount,account[index2-1]);

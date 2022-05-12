@@ -31,30 +31,34 @@ public class HomeWork7 {
                     System.out.println("Input current Money");
                     user.setCash(input.nextInt());
                     acc.addAccount(user);
+                    System.out.println();
                     break;
                 case 2:
-                    acc.printAccounts();
-                    System.out.println("Which user you want to remove");
                     acc.removeAccount();
+                    System.out.println();
                     break;
                 case 3:
                     acc.printAccounts();
+                    System.out.println();
                     break;
                 case 4:
                     acc.transact();
+                    System.out.println();
                     break;
                 case 5:
                     acc.putMoney();
+                    System.out.println();
                     break;
                 case 6:
                     acc.withDraw();
+                    System.out.println();
                     break;
                 case 7:
                     isFinished = true;
                     System.out.println("Thank you for using our Banking system.");
                     break;
                 default:
-                    System.out.println("Invalid value");
+                    System.out.println("Invalid Action ID. Please try again.");
                     break;
             }
 
