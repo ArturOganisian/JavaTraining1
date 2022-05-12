@@ -101,9 +101,9 @@ public class Bank{
         if(money == 0){
             System.out.println("It doesn't make sense.");
         }
-        else {
-            account[index-1].putMoney(money);
-        }
+
+        account[index-1].putMoney(money);
+
     }
 
     public  void withDraw(){
@@ -143,16 +143,18 @@ public class Bank{
             System.out.println("The same user was selected. Transaction failed.");
             return;
         }
-        if(account[index1].cash<1){
+        if(account[index1-1].cash<1){
             System.out.println("Transaction is impossible because account don't have enough money.");
             return;
         }
         System.out.println("How much you want to transfer?");
         int amount = input.nextInt();
-        if(amount> account[index1].cash){
+        if(amount> account[index1-1].cash){
             System.out.println("Not enough money to do transaction. Please enter correct data.");
             return;
         }
-        account[index1-1].transferMoney(amount,account[index2-1]);
+        else {
+            account[index1 - 1].transferMoney(amount, account[index2 - 1]);
+        }
     }
 }

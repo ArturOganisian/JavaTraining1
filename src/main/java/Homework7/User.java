@@ -59,7 +59,6 @@ public class User {
             return;
         }
         cash = cash + money;
-        System.out.println("Money added successfully.");
     }
 
     public void withdrawMoney(int money){
@@ -68,7 +67,6 @@ public class User {
             return;
         }
         cash = cash - money;
-        System.out.println("Money transferred to your hand.");
     }
 
     public void  transferMoney(int money, User user){
