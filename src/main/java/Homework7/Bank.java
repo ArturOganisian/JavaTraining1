@@ -2,7 +2,7 @@ package Homework7;
 
 import java.util.Scanner;
 
-public class Bank {
+public class Bank{
     private User[] account;
     public Scanner input = new Scanner(System.in);
     private int count = 0;
@@ -57,6 +57,20 @@ public class Bank {
     }
 
     public void addAccount(User user){
+        if(user.cash<0){
+            System.out.println("Sorry. It's impossible to add account with negative balance.");
+            System.out.println("Please try again.");
+            return;
+        }
+        if(user.age<0 || user.age>150){
+            System.out.println("Sorry. Invalid user age.");
+            System.out.println("Please enter correct data.");
+            return;
+        }
+        if(user.age>=0 && user.age<=17){
+            System.out.println("Sorry but you have to be an adult to use our system.");
+            return;
+        }
         increaseArrSize(account);
         account[count]=user;
         count++;
@@ -100,6 +114,11 @@ public class Bank {
         int money = input.nextInt();
         if(index>count||index<=0){
             System.out.println("Incorrect User ID");
+            return;
+        }
+        if(account[index-1].cash < money){
+            System.out.println("Withdrawal is impossible as account don't have money.");
+            return;
         }
         else {
             account[index-1].withdrawMoney(money);
@@ -124,8 +143,16 @@ public class Bank {
             System.out.println("The same user was selected. Transaction failed.");
             return;
         }
+        if(account[index1].cash<1){
+            System.out.println("Transaction is impossible because account don't have enough money.");
+            return;
+        }
         System.out.println("How much you want to transfer?");
         int amount = input.nextInt();
+        if(amount> account[index1].cash){
+            System.out.println("Not enough money to do transaction. Please enter correct data.");
+            return;
+        }
         account[index1-1].transferMoney(amount,account[index2-1]);
     }
 }

@@ -1,10 +1,10 @@
 package Homework7;
 
 public class User {
-    private String name;
-    private String surName;
-    private int age;
-    private int cash;
+    protected String name;
+    protected String surName;
+    protected int age;
+    protected int cash;
 
     public User(String name, String surName, int age, int cash){
         setName(name);
@@ -20,7 +20,6 @@ public class User {
     }
     public void setName(String name) {
         this.name = name;
-
     }
 
     public String getSurName() {
@@ -34,14 +33,6 @@ public class User {
         return age;
     }
     public void setAge(int age) {
-        if(age>=0 && age <= 17){
-            System.out.println("Sorry but you must be an Adult to use our Banking system :(");
-            return;
-        }
-        if(age<0 || age>150){
-            System.out.println("Incorrect age data. Please enter the correct value");
-            return;
-        }
         this.age = age;
     }
 
@@ -49,10 +40,6 @@ public class User {
         return cash;
     }
     public void setCash(int cash) {
-        if(cash<0){
-            System.out.println("Invalid cash amount. It can't be lower than 0.");
-            return;
-        }
         this.cash = cash;
     }
 
