@@ -20,7 +20,7 @@ public class Snake extends Reptile {
     }
     @Override
     public String toString() {
-        return this.getName()+ " is" +this.getAge()+ " year old";
+        return this.getName()+ " Snake is " +this.getAge()+ " year old";
     }
 
     @Override

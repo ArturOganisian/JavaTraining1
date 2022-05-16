@@ -20,7 +20,7 @@ public class Tiger extends WildAnimal {
     }
     @Override
     public String toString() {
-        return this.getName()+ " is" +this.getAge()+ " year old";
+        return this.getName()+ " Tiger is " +this.getAge()+ " year old";
     }
 
     @Override

@@ -127,6 +127,7 @@ public class Main {
                 break;
         }
 
+
     }
     public static void animalSelection(){
         String animalType;
@@ -191,10 +192,11 @@ public class Main {
     static void showAnimals(Animal[]animals){
         for(int i=0;i<animals.length;i++){
             if(animals[i]!=null)
+
                 System.out.println(animals[i].toString());
         }
-
     }
+
 
     public static void addInZoo(Zoo zoo,Animal animal){
         for(int i=0;i<zoo.getZoo().length;i++){

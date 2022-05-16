@@ -21,7 +21,7 @@ package Homework8;
 
         @Override
         public String toString() {
-            return this.getName()+ " is" +this.getAge()+ " year old";
+            return this.getName()+ " Dolphin is " +this.getAge()+ " year old";
         }
 
         @Override

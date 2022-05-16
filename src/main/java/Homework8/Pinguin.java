@@ -21,7 +21,7 @@ public class Pinguin extends WaterAnimal {
 
     @Override
     public String toString() {
-        return this.getName()+ " is" +this.getAge()+ " year old";
+        return this.getName()+ " Pinguin is " +this.getAge()+ " year old";
     }
 
     @Override

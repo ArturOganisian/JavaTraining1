@@ -22,7 +22,7 @@ public class Sparrow extends Bird{
 
     @Override
     public String toString() {
-        return this.getName()+ " is" +this.getAge()+ " years old";
+        return this.getName()+ " Sparrow is " +this.getAge()+ " years old";
     }
     @Override
     public void feed() {
