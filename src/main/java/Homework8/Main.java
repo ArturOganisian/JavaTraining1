@@ -90,7 +90,7 @@ public class Main {
             System.out.println("The index of "+ species[i]+" is " +j);
         }
     }
-    public static void createSpecie(int index, Animal animal){
+    public static void createAnimal(int index, Animal animal){
         System.out.print("Give a name to the Animal: ");
         String name = input.next();
         System.out.println();
@@ -142,7 +142,7 @@ public class Main {
                 System.out.println("Select the Wild animal Type");
                 animalIndex(TypesOfWildAnimals);
                 int specieIndex=input.nextInt();
-                createSpecie(specieIndex,rootWildAnimal);
+                createAnimal(specieIndex,rootWildAnimal);
                 break;
             case 2:
                 animalType="Bird";
@@ -151,25 +151,25 @@ public class Main {
                 System.out.println("Select the Bird Type");
                 animalIndex(TypesOfBirds);
                 specieIndex=input.nextInt();
-                createSpecie(specieIndex,rootBird);
+                createAnimal(specieIndex,rootBird);
                 break;
             case 3:
                 animalType="Water Animal";
                 mealType="Fish";
-                Bird rootWaterAnimal=(Bird) createAnimal(animalType,mealType);
+                WaterAnimal rootWaterAnimal=(WaterAnimal) createAnimal(animalType,mealType);
                 System.out.println("Select the Water Animal Type");
                 animalIndex(TypesOfWaterAnimals);
                 specieIndex=input.nextInt();
-                createSpecie(specieIndex,rootWaterAnimal);
+                createAnimal(specieIndex,rootWaterAnimal);
                 break;
             case 4:
                 animalType="Reptile";
                 mealType="Meat and Fish";
-                Bird rootReptile=(Bird) createAnimal(animalType,mealType);
+                Reptile rootReptile=(Reptile) createAnimal(animalType,mealType);
                 System.out.println("Select the Reptile Type");
                 animalIndex(TypesOfReptiles);
                 specieIndex=input.nextInt();
-                createSpecie(specieIndex,rootReptile);
+                createAnimal(specieIndex,rootReptile);
                 break;
             default:
                 System.out.println("Error while input");
