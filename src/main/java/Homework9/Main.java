@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 public class Main {
-    public static Bank[] banks = new Bank[]{new Bank(1, "Ineco", new User[10]), new Bank(2, "HSBC", new User[10]), new Bank(2, "Evoca", new User[10])};
+    public static Bank[] banks = new Bank[]{new Bank(1, "Ineco", new User[10]), new Bank(2, "HSBC", new User[10]), new Bank(3, "Evoca", new User[10])};
 
     static int accNum = 1;
 
@@ -67,17 +67,24 @@ public class Main {
                 case 5:
                     logBanks();
                     System.out.println("Select your bank Id");
-                    bankId = scn.nextInt();
+                    int bankId1 = scn.nextInt();
                     System.out.println("Choose the user that want to transfer money");
-                    logUsersByBankId(bankId - 1);
+                    logUsersByBankId(bankId1 - 1);
                     int userId1 = scn.nextInt();
+                    System.out.println();
+
+                    logBanks();
+                    System.out.println("Select to what Bank's user you want to transfer money");
+                    int bankId2 = scn.nextInt();
                     System.out.println("Choose the user that want will get the money");
-                    logUsersByBankId(bankId - 1);
+                    logUsersByBankId(bankId2 - 1);
                     int userId2 = scn.nextInt();
+                    System.out.println();
+
                     System.out.println("Hom much money you want to transfer?");
                     cash = scn.nextInt();
-                    cashOut(cash, bankId - 1, userId1 - 1);
-                    cashIn(cash, bankId - 1, userId2 - 1);
+                    cashOut(cash, bankId1 - 1, userId1 - 1);
+                    cashIn(cash, bankId2 - 1, userId2 - 1);
                     System.out.println();
                     break;
                 case 6:
@@ -88,6 +95,9 @@ public class Main {
                     System.out.println();
                     break;
                 case 7:
+                    logAllUsers();
+                    break;
+                case 8:
                     isFinished = true;
                     System.out.println("Thank you for using our Banking system.");
                     System.out.println();
@@ -98,6 +108,20 @@ public class Main {
         }
 
     }
+
+    static void logAllUsers() {
+        for(int i = 0; i < banks.length; ++i) {
+            System.out.println(banks[i].getName() + "'s Users are:");
+            for (int j = 0; j < 10; j++) {
+                if (banks[i].getUsers()[j] != null) {
+                    System.out.println(banks[i].getUsers()[j]);
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
 
     static void cashIn(int cash, int bankId, int userId) {
         if (banks[bankId] != null) {
@@ -172,7 +196,8 @@ public class Main {
         System.out.println("Type 4 if you want to cash-out");
         System.out.println("Type 5 if you want to transfer money");
         System.out.println("Type 6 if you want to log user's by the Bank ID");
-        System.out.println("Type 7 if you want to exit");
+        System.out.println("Type 7 if you want to log all users");
+        System.out.println("Type 8 if you want to exit");
     }
 
     private static void logBanks() {
