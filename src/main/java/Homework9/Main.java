@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static Bank[] banks = new Bank[]{new Bank(1, "Ineco", new User[10]), new Bank(2, "HSBC", new User[10]), new Bank(2, "Evoca", new User[10])};
 
-    int accNum;
+    static int accNum = 1;
 
     public static void main(String[] args) {
         boolean isFinished = false;
@@ -143,11 +143,10 @@ public class Main {
     private static void addNewUser(User user, int bankId) {
         Bank bank = getBankById(bankId);
         User[] users = bank.getUsers();
-
         for(int i = 0; i < users.length; ++i) {
             if (users[i] == null) {
                 user.setId(i + 1);
-                user.setAccountNumber(i + 1);
+                user.setAccountNumber(accNum++);
                 users[i] = user;
                 return;
             }
