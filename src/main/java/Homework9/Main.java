@@ -2,11 +2,11 @@ package Homework9;
 
 import java.util.Scanner;
 
+
 public class Main {
     public static Bank[] banks = new Bank[]{new Bank(1, "Ineco", new User[10]), new Bank(2, "HSBC", new User[10]), new Bank(2, "Evoca", new User[10])};
 
-    public Main() {
-    }
+    int accNum;
 
     public static void main(String[] args) {
         boolean isFinished = false;
@@ -28,6 +28,7 @@ public class Main {
                     System.out.println("Type your lastname");
                     user.setLastname(scn.next());
                     addNewUser(user, bankId);
+                    System.out.println();
                     break;
                 case 2:
                     logBanks();
@@ -37,6 +38,7 @@ public class Main {
                     logUsersByBankId(bankId - 1);
                     userId = scn.nextInt();
                     removeUser(userId - 1, bankId - 1);
+                    System.out.println();
                     break;
                 case 3:
                     logBanks();
@@ -48,6 +50,7 @@ public class Main {
                     System.out.println("Hom much money you want to cash-in?");
                     cash = scn.nextInt();
                     cashIn(cash, bankId - 1, userId - 1);
+                    System.out.println();
                     break;
                 case 4:
                     logBanks();
@@ -59,6 +62,7 @@ public class Main {
                     System.out.println("Hom much money you want to cash-out?");
                     cash = scn.nextInt();
                     cashOut(cash, bankId - 1, userId - 1);
+                    System.out.println();
                     break;
                 case 5:
                     logBanks();
@@ -67,23 +71,26 @@ public class Main {
                     System.out.println("Choose the user that want to transfer money");
                     logUsersByBankId(bankId - 1);
                     int userId1 = scn.nextInt();
-                    System.out.println("Choose the user that will get the money");
+                    System.out.println("Choose the user that want will get the money");
                     logUsersByBankId(bankId - 1);
                     int userId2 = scn.nextInt();
                     System.out.println("Hom much money you want to transfer?");
                     cash = scn.nextInt();
                     cashOut(cash, bankId - 1, userId1 - 1);
                     cashIn(cash, bankId - 1, userId2 - 1);
+                    System.out.println();
                     break;
                 case 6:
                     logBanks();
                     System.out.println("Select your bank Id");
                     bankId = scn.nextInt();
                     logUsersByBankId(bankId - 1);
+                    System.out.println();
                     break;
                 case 7:
                     isFinished = true;
                     System.out.println("Thank you for using our Banking system.");
+                    System.out.println();
                     break;
                 default:
                     System.out.println("Error while input");
@@ -114,6 +121,7 @@ public class Main {
             for (int i = 1; i < 10; i++) {
                 if(banks[bankId].getUsers()[i-1] == null && banks[bankId].getUsers()[i] != null){
                     banks[bankId].getUsers()[i-1] = banks[bankId].getUsers()[i];
+                    banks[bankId].getUsers()[i].setId(i);
                     banks[bankId].getUsers()[i] = null;
                 }
             }
@@ -126,7 +134,7 @@ public class Main {
     static void logUsersByBankId(int bankId) {
         for(int i = 0; i < 10; ++i) {
             if (banks[bankId].getUsers()[i] != null) {
-                System.out.println("UID " + (i + 1) + ". " + banks[bankId].getUsers()[i]);
+                System.out.println(banks[bankId].getUsers()[i]);
             }
         }
 
@@ -139,6 +147,7 @@ public class Main {
         for(int i = 0; i < users.length; ++i) {
             if (users[i] == null) {
                 user.setId(i + 1);
+                user.setAccountNumber(i + 1);
                 users[i] = user;
                 return;
             }
