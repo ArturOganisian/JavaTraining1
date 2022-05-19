@@ -67,7 +67,7 @@ public class Main {
                     System.out.println("Choose the user that want to transfer money");
                     logUsersByBankId(bankId - 1);
                     int userId1 = scn.nextInt();
-                    System.out.println("Choose the user that want will get the money");
+                    System.out.println("Choose the user that will get the money");
                     logUsersByBankId(bankId - 1);
                     int userId2 = scn.nextInt();
                     System.out.println("Hom much money you want to transfer?");
@@ -109,8 +109,14 @@ public class Main {
     }
 
     private static void removeUser(int userId, int bankId) {
-        if (banks[bankId].getUsers()[userId - 1] != null) {
-            banks[bankId].getUsers()[userId - 1] = null;
+        if (banks[bankId].getUsers()[userId] != null) {
+            banks[bankId].getUsers()[userId] = null;
+            for (int i = 1; i < 10; i++) {
+                if(banks[bankId].getUsers()[i-1] == null && banks[bankId].getUsers()[i] != null){
+                    banks[bankId].getUsers()[i-1] = banks[bankId].getUsers()[i];
+                    banks[bankId].getUsers()[i] = null;
+                }
+            }
             System.out.println("The user was removed");
         } else {
             System.out.println("Something went wrong, please try again!");
@@ -120,7 +126,7 @@ public class Main {
     static void logUsersByBankId(int bankId) {
         for(int i = 0; i < 10; ++i) {
             if (banks[bankId].getUsers()[i] != null) {
-                System.out.println(i + 1 + ". " + banks[bankId].getUsers()[i]);
+                System.out.println("UID " + (i + 1) + ". " + banks[bankId].getUsers()[i]);
             }
         }
 
@@ -133,7 +139,6 @@ public class Main {
         for(int i = 0; i < users.length; ++i) {
             if (users[i] == null) {
                 user.setId(i + 1);
-                user.setAccountNumber(i + 1);
                 users[i] = user;
                 return;
             }

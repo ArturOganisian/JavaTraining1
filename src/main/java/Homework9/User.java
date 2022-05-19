@@ -3,17 +3,15 @@ public class User {
     private int id;
     private String name;
     private String lastname;
-    private int accountNumber;
     private int balance;
 
     public User() {
     }
 
-    public User(int id, String name, String lastname, int accountNumber, int balance) {
+    public User(int id, String name, String lastname, int balance) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
-        this.accountNumber = accountNumber;
         this.balance = balance;
     }
 
@@ -41,14 +39,6 @@ public class User {
         this.lastname = lastname;
     }
 
-    public int getAccountNumber() {
-        return this.accountNumber;
-    }
-
-    public void setAccountNumber(int accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
     public int getBalance() {
         return this.balance;
     }
@@ -58,6 +48,6 @@ public class User {
     }
 
     public String toString() {
-        return "User{id=" + this.id + ", name='" + this.name + "', lastname='" + this.lastname + "', accountNumber=" + this.accountNumber + ", balance=" + this.balance + "}";
+        return "User{Name='" + this.name + "', Lastname='" + this.lastname + ", balance=" + this.balance + "}";
     }
 }
